@@ -1,4 +1,4 @@
-package com.fp.session3;
+package com.fp.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +18,10 @@ public class Order {
     private int productIndex;
     private int quantity;
     private int price;
+    private double discount;
+
+    @Override
+    public String toString() {
+        return "OrderId: " + this.orderId + ", Price: " + this.price + ", Quantity: " + this.quantity + ", Discount: " + this.discount;
+    }
 }

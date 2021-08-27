@@ -1,6 +1,8 @@
 package com.fp.session3;
 
 
+import com.fp.util.Order;
+
 import java.util.function.Function;
 
 /**
@@ -10,30 +12,13 @@ import java.util.function.Function;
  */
 public class ProductDiscountCalculation {
 
-    private static Function<Integer, Double[]> foodFunction = new Function<Integer, Double[]>() {
-        @Override
-        public Double[] apply(Integer productIndex) {
-            return productParametersFood(productIndex);
-        }
-    };
-
-    private static Function<Integer, Double[]> beverageFunction = new Function<Integer, Double[]>() {
-        @Override
-        public Double[] apply(Integer productIndex) {
-            return productParametersBeverage(productIndex);
-        }
-    };
-
-    private static Function<Integer, Double[]> rawMaterialFunction = new Function<Integer, Double[]>() {
-        @Override
-        public Double[] apply(Integer productIndex) {
-            return productParametersRawMaterial(productIndex);
-        }
-    };
+    private static Function<Integer, Double[]> foodFunction = ProductDiscountCalculation::productParametersFood;
+    private static Function<Integer, Double[]> beverageFunction = ProductDiscountCalculation::productParametersBeverage;
+    private static Function<Integer, Double[]> rawMaterialFunction = ProductDiscountCalculation::productParametersRawMaterial;
 
     public static void main (String [] args) {
         String productType = "Food";
-        Order order = new Order(10, 100, 20, 4);
+        Order order = new Order(10, 100, 20, 4, 0.0);
         Function<Integer, Double[]> parameterFunction = productType.equals("Food") ? foodFunction : productType.equals("beverage") ? beverageFunction : rawMaterialFunction;
 
         System.out.println(calculateDiscount(parameterFunction, order));

@@ -11,19 +11,8 @@ import java.util.function.Function;
  */
 public class Delegates {
 
-    private static Function<Double, Double> dlgtTest1 = new Function<Double, Double>() {
-        @Override
-        public Double apply(Double x) {
-            return test1(x);
-        }
-    };
-
-    private static Function<Double, Double> dlgtTest2 = new Function<Double, Double>() {
-        @Override
-        public Double apply(Double x) {
-            return test2(x);
-        }
-    };
+    private static Function<Double, Double> dlgtTest1 = Delegates::test1;
+    private static Function<Double, Double> dlgtTest2 = Delegates::test2;
 
     public static void main (String[] args) {
         List<Function<Double, Double>> list = new ArrayList<>();
@@ -43,16 +32,16 @@ public class Delegates {
         System.out.println(test(list.get(1), 5.0));
     }
 
+    // Higher Order Function
+    private static double test(Function<Double, Double> function, double v) {
+        return function.apply(v) + v;
+    }
+
     private static double test1(double x) {
         return x / 2;
     }
 
     private static double test2(double x) {
         return x / 4 + 1;
-    }
-
-    // Higher Order Function
-    private static double test (Function<Double, Double> function, double v) {
-        return function.apply(v) + v;
     }
 }
