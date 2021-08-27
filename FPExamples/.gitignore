@@ -5,3 +5,6 @@
  
 # Mac
 .DS_Store
+
+#java
+target
