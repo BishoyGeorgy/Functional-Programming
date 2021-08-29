@@ -1,5 +1,7 @@
 package com.fp.session2;
 
+import com.fp.util.CalculationsUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,48 +24,34 @@ public class SequencedOperations {
         numbers.add(10.0);
 
         //1st Example
-        List<Double> result1 = numbers.stream().map(SequencedOperations::addOne)
-                                               .map(SequencedOperations::square)
-                                               .map(SequencedOperations::subtractTen)
+        List<Double> result1 = numbers.stream().map(CalculationsUtil::addOne)
+                                               .map(CalculationsUtil::square)
+                                               .map(CalculationsUtil::subtractTen)
                                                .collect(Collectors.toList());
 
         result1.forEach(number -> System.out.println(number));
         System.out.println("------------------");
 
         //2nd Example
-        List<Double> result2 = numbers.stream().map(SequencedOperations::addOne)
-                                               .map(SequencedOperations::square)
+        List<Double> result2 = numbers.stream().map(CalculationsUtil::addOne)
+                                               .map(CalculationsUtil::square)
                                                .filter( x -> x < 20)
-                                               .map(SequencedOperations::subtractTen)
+                                               .map(CalculationsUtil::subtractTen)
                                                .collect(Collectors.toList());
 
         result2.forEach(number -> System.out.println(number));
         System.out.println("------------------");
 
         //3rd Example
-        List<Double> result3 = numbers.stream().map(SequencedOperations::addOne)
-                                               .map(SequencedOperations::square)
+        List<Double> result3 = numbers.stream().map(CalculationsUtil::addOne)
+                                               .map(CalculationsUtil::square)
                                                .filter( x -> x < 70)
                                                .sorted()
                                                .limit(2)
-                                               .map(SequencedOperations::subtractTen)
+                                               .map(CalculationsUtil::subtractTen)
                                                .collect(Collectors.toList());
 
         result3.forEach(number -> System.out.println(number));
         System.out.println("------------------");
-
-
-    }
-
-    private static double subtractTen(double x) {
-        return x - 10.0;
-    }
-
-    private static double square(double x) {
-        return Math.pow(x, 2);
-    }
-
-    private static double addOne(double x) {
-        return x + 1.0;
     }
 }
