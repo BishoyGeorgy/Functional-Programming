@@ -1,4 +1,4 @@
-package com.fp.util;
+package com.fp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

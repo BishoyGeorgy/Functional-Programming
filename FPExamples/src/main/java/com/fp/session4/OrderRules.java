@@ -1,6 +1,6 @@
 package com.fp.session4;
 
-import com.fp.util.Order;
+import com.fp.model.Order;
 
 import java.util.HashMap;
 import java.util.Map;

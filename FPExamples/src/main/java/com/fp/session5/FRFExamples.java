@@ -5,7 +5,6 @@ import com.fp.util.CalculationsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import static com.fp.util.CalculationsUtil.*;
 
@@ -56,7 +55,7 @@ public class FRFExamples {
 
         System.out.println("------------------");
 
-        //The 4th example using andThen and compose methos in the Finction itself
+        //The 4th example using andThen and compose methods in the Function itself
         Function<Double, Double> andThen = addOneDlgt.andThen(squareDlgt).andThen(subtractTenDlgt);
         numbers.stream().map(andThen)
                         .forEach(number -> System.out.println(number));

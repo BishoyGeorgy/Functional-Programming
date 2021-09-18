@@ -1,7 +1,7 @@
 package com.fp.session3;
 
 
-import com.fp.util.Order;
+import com.fp.model.Order;
 
 import java.util.function.Function;
 
